@@ -1,0 +1,163 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateClientWorkouts (20110130091947)
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "client_workouts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_name" varchar(255), "trainer" varchar(255), "duration_mins" integer, "date_of_workout" date, "paid_amount" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110130091947')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("client_workouts")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-30 18:21:37) [GET]
+
+ActionController::RoutingError (No route matches "/client_workout" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ClientWorkoutsController#index (for 127.0.0.1 at 2011-01-30 18:21:55) [GET]
+  [4;36;1mClientWorkout Load (0.4ms)[0m   [0;1mSELECT * FROM "client_workouts" [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/index
+Completed in 39ms (View: 34, DB: 0) | 200 OK [http://localhost/client_workouts]
+
+
+Processing ClientWorkoutsController#index (for 127.0.0.1 at 2011-01-30 18:29:59) [GET]
+  [4;35;1mClientWorkout Load (0.3ms)[0m   [0mSELECT * FROM "client_workouts" [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/index
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/client_workouts]
+
+
+Processing ClientWorkoutsController#find (for 127.0.0.1 at 2011-01-30 18:34:46) [POST]
+  Parameters: {"search_string"=>"aaaaaaaaaa", "commit"=>"Search", "authenticity_token"=>"rNLEG33YsrbaZfndeuDpgRK5pTT1aSQKjgsjmjklDQc="}
+
+ActionView::MissingTemplate (Missing template client_workouts/find.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ClientWorkoutsController#find (for 127.0.0.1 at 2011-01-30 19:06:55) [POST]
+  Parameters: {"search_string"=>"aaaaaaaaaa", "commit"=>"Search", "authenticity_token"=>"rNLEG33YsrbaZfndeuDpgRK5pTT1aSQKjgsjmjklDQc="}
+  [4;36;1mClientWorkout Load (0.1ms)[0m   [0;1mSELECT * FROM "client_workouts" WHERE ("client_workouts"."client_name" IS NULL) [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/find
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/client_workouts/find]
+
+
+Processing ApplicationController#find (for 127.0.0.1 at 2011-01-30 19:26:16) [POST]
+  Parameters: {"search_string"=>"aaaaaaaaaa", "commit"=>"Search", "authenticity_token"=>"rNLEG33YsrbaZfndeuDpgRK5pTT1aSQKjgsjmjklDQc="}
+
+SyntaxError (/Users/k_nori-yagi/NetBeansProjects/client_workout/app/controllers/client_workouts_controller.rb:85: unterminated string meets end of file
+/Users/k_nori-yagi/NetBeansProjects/client_workout/app/controllers/client_workouts_controller.rb:85: syntax error, unexpected $end, expecting ']'):
+  
+
+Rendered rescues/_trace (34.0ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ClientWorkoutsController#find (for 127.0.0.1 at 2011-01-30 19:28:08) [POST]
+  Parameters: {"search_string"=>"aaaaaaaaaa", "commit"=>"Search", "authenticity_token"=>"rNLEG33YsrbaZfndeuDpgRK5pTT1aSQKjgsjmjklDQc="}
+  [4;35;1mClientWorkout Load (0.4ms)[0m   [0mSELECT * FROM "client_workouts" WHERE (client_name = 'aaaaaaaaaa' OR trainer = 'aaaaaaaaaa') [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/find
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/client_workouts/find]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-31 22:42:47) [GET]
+
+ActionController::RoutingError (No route matches "/client_workout" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ClientWorkoutsController#index (for 127.0.0.1 at 2011-01-31 22:42:58) [GET]
+  [4;36;1mClientWorkout Load (0.5ms)[0m   [0;1mSELECT * FROM "client_workouts" [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/index
+Completed in 81ms (View: 77, DB: 0) | 200 OK [http://localhost/client_workouts]
+
+
+Processing ClientWorkoutsController#new (for 127.0.0.1 at 2011-01-31 22:43:01) [GET]
+Rendering template within layouts/client_workouts
+Rendering client_workouts/new
+Completed in 49ms (View: 44, DB: 0) | 200 OK [http://localhost/client_workouts/new]
+
+
+Processing ClientWorkoutsController#create (for 127.0.0.1 at 2011-01-31 22:43:15) [POST]
+  Parameters: {"commit"=>"Create", "client_workout"=>{"client_name"=>"bob", "trainer"=>"aaa", "paid_amount"=>"$50", "duration_mins"=>"hjhhj", "date_of_workout(1i)"=>"2011", "date_of_workout(2i)"=>"1", "date_of_workout(3i)"=>"31"}, "authenticity_token"=>"rNLEG33YsrbaZfndeuDpgRK5pTT1aSQKjgsjmjklDQc="}
+Rendering template within layouts/client_workouts
+Rendering client_workouts/new
+Completed in 49ms (View: 19, DB: 0) | 200 OK [http://localhost/client_workouts]
+
+
+Processing ClientWorkoutsController#create (for 127.0.0.1 at 2011-01-31 22:43:19) [POST]
+  Parameters: {"commit"=>"Create", "client_workout"=>{"client_name"=>"bob", "trainer"=>"aaa", "paid_amount"=>"50", "duration_mins"=>"hjhhj", "date_of_workout(1i)"=>"2011", "date_of_workout(2i)"=>"1", "date_of_workout(3i)"=>"31"}, "authenticity_token"=>"rNLEG33YsrbaZfndeuDpgRK5pTT1aSQKjgsjmjklDQc="}
+  [4;35;1mClientWorkout Create (13.4ms)[0m   [0mINSERT INTO "client_workouts" ("updated_at", "client_name", "trainer", "paid_amount", "duration_mins", "date_of_workout", "created_at") VALUES('2011-01-31 13:43:19', 'bob', 'aaa', 50.0, 0, '2011-01-31', '2011-01-31 13:43:19')[0m
+Redirected to http://localhost:3000/client_workouts/1
+Completed in 43ms (DB: 13) | 302 Found [http://localhost/client_workouts]
+
+
+Processing ClientWorkoutsController#show (for 127.0.0.1 at 2011-01-31 22:43:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mClientWorkout Load (0.5ms)[0m   [0;1mSELECT * FROM "client_workouts" WHERE ("client_workouts"."id" = 1) [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/show
+Completed in 33ms (View: 26, DB: 1) | 200 OK [http://localhost/client_workouts/1]
+
+
+Processing ClientWorkoutsController#index (for 127.0.0.1 at 2011-01-31 22:43:22) [GET]
+  [4;35;1mClientWorkout Load (0.5ms)[0m   [0mSELECT * FROM "client_workouts" [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/index
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/client_workouts]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-31 22:49:50) [GET]
+
+ActionController::RoutingError (No route matches "/ads" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ClientWorkoutsController#index (for 127.0.0.1 at 2011-01-31 22:49:56) [GET]
+  [4;36;1mClientWorkout Load (0.5ms)[0m   [0;1mSELECT * FROM "client_workouts" [0m
+Rendering template within layouts/client_workouts
+Rendering client_workouts/index
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://localhost/client_workouts]
+
+
+Processing ClientWorkoutsController#new (for 127.0.0.1 at 2011-01-31 22:50:00) [GET]
+Rendering template within layouts/client_workouts
+Rendering client_workouts/new
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/client_workouts/new]
+
+
+Processing ClientWorkoutsController#create (for 127.0.0.1 at 2011-01-31 22:50:01) [POST]
+  Parameters: {"commit"=>"Create", "client_workout"=>{"client_name"=>"", "trainer"=>"", "paid_amount"=>"", "duration_mins"=>"", "date_of_workout(1i)"=>"2011", "date_of_workout(2i)"=>"1", "date_of_workout(3i)"=>"31"}, "authenticity_token"=>"rNLEG33YsrbaZfndeuDpgRK5pTT1aSQKjgsjmjklDQc="}
+Rendering template within layouts/client_workouts
+Rendering client_workouts/new
+Completed in 94ms (View: 86, DB: 0) | 200 OK [http://localhost/client_workouts]
